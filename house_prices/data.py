@@ -14,3 +14,12 @@ def load_housing_data() -> pd.DataFrame:
         with tarfile.open(tarball_path) as housing_tarball:
             housing_tarball.extractall(path="datasets")
     return pd.read_csv(Path("datasets/housing/housing.csv"))
+
+
+def column_ratio(X):
+    """
+    Returns the ratio of the first column to the second column
+    :param X: 2-dimensional array
+    :return: 2-dimensional array where the second dimension corresponds to the ratio of the first column to the second column
+    """
+    return X[:, [0]] / X[:, [1]]
